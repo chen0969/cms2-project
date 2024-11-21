@@ -37,4 +37,5 @@
     </section>
 </main>
 <?php get_template_part('template-parts/part', 'carousel'); ?>
+<div><?php get_sidebar('my_sidebar');?></div>
 <?php get_footer(); ?>

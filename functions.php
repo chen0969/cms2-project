@@ -12,21 +12,6 @@ function primary_stylesheet()
 // Add_action is a hook that allows you to add a function to a specific point in the execution of WordPress
 add_action('wp_enqueue_scripts', 'primary_stylesheet', 5);
 
-// Add theme support for Elementor
-function add_elementor_theme_support() {
-    add_theme_support('elementor');
-    add_theme_support('elementor-experiments');
-}
-add_action('after_setup_theme', 'add_elementor_theme_support');
-
-function load_ele(){
-    wp_enqueue_style(
-        'ele-8',
-        get_theme_file_uri('../wp-content/uploads/elementor/css/post-8.css')
-    );
-}
-add_action('wp_enqueue_scripts', 'ele-8');
-
 function load_bootstrap()
 {
     wp_enqueue_style(
@@ -55,3 +40,32 @@ function load_carousel()
     );
 }
 add_action('wp_enqueue_scripts', 'load_carousel');
+
+
+// footer functions
+function reg_menus(){
+    register_nav_menus( 
+        array(
+            'Footer_Nav' => __('footer nav'),
+            'Footer_Nav_2' => __('footer nav 2'),
+            'Footer_Nav_3' => __('footer nav 3'),
+        )
+        );
+};
+add_action('init', 'reg_menus');
+
+// sidebar function
+function new_sidebar(){
+    register_sidebar(
+        array(
+            'id' => 'my_sidebar',
+            'name' => 'new_sidebar',
+            'description' => 'See! new sidebar!',
+            'before_widget' => '<div id="%1$s" class="widget-%2$s">',
+            'after_widget' => '</div>',
+            'before_title' => '<h3 class="widget_title">',
+            'after_title' => '</h3>'
+        )
+        );
+};
+add_action('widgets_init', 'new_sidebar');

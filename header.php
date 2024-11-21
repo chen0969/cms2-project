@@ -18,4 +18,13 @@
             'menu_class' => 'c-chicago_custome',
         ));
         ?>
+        <div class="container">
+            <div class="row">
+            <h5 class="col-6"><?php get_search_form(); ?></h5>
+            <h5 class="col-6 text-end"><?php the_time(); ?></h5>
+            </div>
+        </div>
+
     </header>
+
+    <?php print_r('test content'); ?>

@@ -29,7 +29,7 @@
 h1{
     font-size: 7rem;
     font-weight: 900;
-    color: var(--reddish-pink)
+    color: var(--reddish-pink);
 }
 
 h2{
@@ -157,6 +157,11 @@ font-size: 1.2rem;
     all: unset;
     color: white;
     cursor: pointer;
+}
+
+.my-little-pic{
+    filter: blur(2px);
+    border-radius: 50px;
 }
 
 

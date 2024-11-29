@@ -1,180 +1,236 @@
-/**
- * Theme Name:        CMS II Project
- * Description:       This is a coustom theme for Chicago Tourism website.
- * Version:           1.0.0
- * Author:            Ana Amaya | Jing-An Chen | Jeffrey Arbutante | Joelife Pacapac
- * License:           GNU General Public License v2.0 or later
- * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+/*!
+ * Theme Name: CMS II Project
+ * Description: Custom theme for Chicago Tourism website.
+ * Version: 1.0.0
+ * Author: Ana Amaya | Jing-An Chen | Jeffrey Arbutante | Joelife Pacapac
+ * License: GNU General Public License v2.0 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
-
-
- /* color platte */
-  :root{
-    /* color */
-    --reddish-pink: #d15b61;
-    --soft-peach: #ffca7c;
-    --light-sky-blue: #4ab2e1;
-    --vibrant-orange: #faa143;
-    --deep-teal: #0b343b;
-
-    /* space */
-    --space-1: 1rem;
-    --space-2: 2rem;
-    --space-4: 4rem;
-    --space-8: 8rem;
- }
-
-
- /* other styles */
-h1{
-    font-size: 7rem;
-    font-weight: 900;
-    color: var(--reddish-pink);
+@import url("https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap");
+.funnel {
+  font-family: "Funnel Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
 }
 
-h2{
-    font-size: 5rem;
-    font-weight: 900;
-    color: var(--soft-peach);
+:root {
+  --color-reddish-pink: #d15b61;
+  --color-soft-peach: #ffca7c;
+  --color-light-sky-blue: #4ab2e1;
+  --color-vibrant-orange: #faa143;
+  --color-deep-teal: #0b343b;
+  --space-1: 1rem;
+  --space-2: 2rem;
+  --space-4: 4rem;
+  --space-8: 8rem;
 }
 
-h3{
-    font-size: 3rem;
-    font-weight: 800;
-    color: var(--vibrant-orange);
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-h4{
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--soft-peach);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Funnel Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
 }
 
-h5{
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--soft-peach);
+h1 {
+  font-size: 7rem;
+  color: var(--color-reddish-pink);
 }
 
-h6{
-    font-size: 0.5rem;
-    font-weight: 700;
-    color: var(--soft-peach);
-}
-/* components */
-
-.c-contact{
-    background-color: var(--light-sky-blue);
-    border-top: solid var(--reddish-pink) var(--space-1);
-    color: white;
-    a{
-        all: unset;
-        cursor: pointer;
-    }
+h2 {
+  font-size: 5rem;
+  color: var(--color-soft-peach);
 }
 
-.c-chicago_custome{
-    width: 100%;
+h3 {
+  font-size: 3rem;
+  color: var(--color-vibrant-orange);
 }
 
-.c-chicago_custome ul{
-    list-style-type:none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    padding-top: var(--space-1);
+h4,
+h5,
+h6 {
+  font-size: 2rem;
+  color: var(--color-soft-peach);
 }
 
-.c-chicago_custome .page_item a{
-    all: unset;
-    color: var(--vibrant-orange);
-    cursor: pointer;
-    font-weight: 600;
-    font-size: var(--space-1);
-    transition: 0.2s;
+p {
+  color: var(--color-deep-teal);
+  font-size: var(--space-1);
+  font-weight: 400;
+  letter-spacing: 0.1rem;
 }
 
-.c-chicago_custome .page_item a:hover{
-font-size: 1.2rem;
+#s, #searchsubmit {
+  font-size: var(--space-1);
 }
 
-
-/* objects */
-
-.o-img{
-    width: 100%;
-    filter: blur(2px);
-    transform-origin: 50% 50%;
-    transition: 0.2s;
-    transform: scale(0.9);
-    cursor: pointer;
-    border-radius: var(--space-1);
+.c-contact {
+  background-color: var(--color-light-sky-blue);
+  color: white;
+}
+.c-contact a {
+  all: unset;
+  cursor: pointer;
 }
 
-.o-img:hover{
-    filter: none;
-    transform: scale(1);
-    border-radius: 0;
+.c-chicago-custom {
+  width: 100%;
 }
-
-.o-img__title{
-    width: 100%;
-    font-size: var(--fm);
-    text-align: center;
+.c-chicago-custom ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: var(--space-1);
 }
-
-.o-heroBanner{
-    width: 100%;
-    height: 70vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-.o-heroBanner__title{
-    color: white;
-    text-shadow: var(--light-sky-blue) var(--space-1) var(--space-1);
-    font-size: var(--space-8);
-    font-weight: 900;
-}
-
-.o-a__unset{
-    all: unset;
-    cursor: pointer;
-}
-
-.o-postCard{
-    background-color: var(--light-sky-blue);
-    border-radius: var(--space-1);
-}
-
-.o-postCard__title{
-    color: white;
-}
-
-.o-postCard__a{
-    all: unset;
-    color: white;
-    cursor: pointer;
-}
-
-.my-little-pic{
-    filter: blur(2px);
-    border-radius: 50px;
-}
-
-
-/* media query */
 @media (max-width: 768px) {
-    h2{
-        font-size: 2rem;
-    }
-    .o-heroBanner__title{
-        font-size: var(--space-2);
-    }
-    .c-chicago_custome ul{
-        flex-direction: column;
-        padding: 0;
-    }
+  .c-chicago-custom ul {
+    flex-direction: column;
+  }
 }
+.c-chicago-custom .page_item {
+  width: auto;
+}
+.c-chicago-custom .page_item a {
+  all: unset;
+  color: var(--color-vibrant-orange);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: var(--space-1);
+  transition: font-size 0.2s ease-in-out;
+}
+.c-chicago-custom .page_item a:hover {
+  font-size: 1.2rem;
+}
+@media (max-width: 768px) {
+  .c-chicago-custom .page_item {
+    width: 30%;
+  }
+}
+
+.c-card {
+  border: solid 2px var(--color-vibrant-orange);
+  border-radius: var(--space-2);
+}
+.c-card__btn {
+  all: unset;
+  cursor: pointer;
+  background-color: #d15b61;
+  color: var(--color-soft-peach);
+  padding: var(--space-1);
+  border-radius: var(--space-1);
+}
+
+.c-footer nav ul li a {
+  all: unset;
+  cursor: pointer;
+  color: white;
+  letter-spacing: 0.2rem;
+  font-weight: 600;
+}
+.c-footer__first {
+  background-color: var(--color-deep-teal);
+}
+.c-footer__second {
+  background-color: var(--color-reddish-pink);
+}
+.c-footer__third {
+  background-color: var(--color-vibrant-orange);
+}
+
+.o-img {
+  width: 100%;
+  filter: blur(2px);
+  transform-origin: 50% 50%;
+  transition: 0.2s;
+  transform: scale(0.9);
+  cursor: pointer;
+  border-radius: var(--space-1);
+}
+.o-img:hover {
+  filter: none;
+  transform: scale(1);
+  border-radius: 0;
+}
+
+.o-img__title {
+  width: 100%;
+  font-size: var(--space-2);
+  text-align: center;
+}
+
+.o-heroBanner {
+  width: 100%;
+  height: 70vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.o-heroBanner__title {
+  color: white;
+  text-shadow: var(--color-light-sky-blue) var(--space-1) var(--space-1);
+  font-size: var(--space-8);
+  font-family: "Funnel Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.o-postCard {
+  background-color: var(--color-light-sky-blue);
+  border-radius: var(--space-1);
+}
+.o-postCard__title, .o-postCard__a {
+  color: white;
+}
+.o-postCard__a {
+  all: unset;
+  cursor: pointer;
+}
+
+.my-little-pic {
+  filter: blur(2px);
+  border-radius: 50px;
+}
+
+.header-widget-area {
+  background-color: #f9f9f9; /* Adjust as needed */
+  padding: 10px 20px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.o-404bg {
+  width: 100%;
+  height: 70vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 2rem;
+  }
+  .o-heroBanner__title {
+    font-size: var(--space-2);
+  }
+  .c-chicago-custom__list {
+    flex-direction: column;
+    padding: 0;
+  }
+}/*# sourceMappingURL=style.css.map */

@@ -14,21 +14,3 @@
         </div>
     </div>
 </section>
-<section class="c-chicago_custome">
-    <ul>
-        <?php
-        $columns = [
-            "Woodworks" => "https://dev-chen0969.pantheonsite.io/",
-            "Portfolio" => "https://broccoli-design.great-site.net/index.html",
-            "Photos" => "https://broccolidesign.myportfolio.com/"
-        ];
-
-       
-        foreach ($columns as $label => $url) {
-            echo '<li class="page_item text-center">';
-            echo "<a href='$url'>$label</a>";
-            echo '</li>';
-        }
-        ?>
-    </ul>
-</section>

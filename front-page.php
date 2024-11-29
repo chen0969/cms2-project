@@ -1,41 +1,65 @@
 <?php get_header(); ?>
-<?php get_template_part('template-parts/part', 'hero'); ?>
-<main id="main-content">
-    <?php
-    // Render Elementor or WP content
-    if (have_posts()) :
-        while (have_posts()) : the_post();
-            the_content();
-        endwhile;
-    endif;
-    ?>
-
-    <!-- posts section -->
-    <section class="container">
-        <div class="row g-2">
-            <?php
-            $args = [
-                'post_type' => 'post',
-                'post_per_page' => -1
-            ];
-            $query = new WP_Query($args);
-            if ($query->have_posts()): while ($query->have_posts()): $query->the_post();
-            ?>
-                    <div class="o-postCard col-md-4 p-1">
-                        <h4 class="o-postCard__title"><a class="o-postCard__a" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
-                        <h5><?php the_author(); ?></h5>
-                        <h6><?php the_excerpt(); ?></h6>
+<main id="main-content" class="container">
+    <div class="row">
+        <!-- main content -->
+        <div class="col-md-10">
+            <div class="contaier">
+                <div class="row">
+                    <!-- hero banner -->
+                    <div class="col-md-12">
+                        <div>
+                            <?php get_template_part('template-parts/part', 'hero'); ?>
+                        </div>
                     </div>
-                <?php
-                endwhile;
-                wp_reset_postdata();
-            else:
-                ?>
-                <h3>No posts!</h3>
-            <?php endif; ?>
+                    <!-- bp cards -->
+                    <div class="col-md-12">
+                        <div class="row">
+                            <?php
+                            $args = array(
+                                'posts_per_page' => 6,
+                                'post_type'      => 'post'
+                            );
+                            $latest_posts = new WP_Query($args);
+
+                            if ($latest_posts->have_posts()) :
+                                while ($latest_posts->have_posts()) : $latest_posts->the_post(); ?>
+                                    <div class="col-md-4 mt-4 mb-4">
+                                        <div class="card custom-card c-card">
+                                            <?php if (has_post_thumbnail()) : ?>
+                                                <img src="<?php the_post_thumbnail_url(); ?>" class="card-img-top" alt="<?php the_title(); ?>">
+                                            <?php endif; ?>
+                                            <div class="card-body">
+                                                <h5 class="card-title"><?php echo mb_strimwidth( get_the_title(), 0, 10, '...' ); ?></h5>
+                                                <p class="card-text"><?php echo wp_trim_words(get_the_excerpt(), 2, '...'); ?></p>
+                                                <a href="<?php the_permalink(); ?>" class="c-card__btn">Read More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                            <?php endwhile;
+                                wp_reset_postdata();
+                            endif;
+                            ?>
+                        </div>
+                    </div>
+                    <!-- main content -->
+                    <div class="col-md-12">
+                        <?php
+                        // Render Elementor or WP content
+                        if (have_posts()) :
+                            while (have_posts()) : the_post();
+                                the_content();
+                            endwhile;
+                        endif;
+                        ?>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+        <!-- side bar -->
+        <div class="col-md-2">
+            <?php get_sidebar('my_sidebar'); ?>
+        </div>
+    </div>
 </main>
 <?php get_template_part('template-parts/part', 'carousel'); ?>
-<div><?php get_sidebar('my_sidebar');?></div>
 <?php get_footer(); ?>
